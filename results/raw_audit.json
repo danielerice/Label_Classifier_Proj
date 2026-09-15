@@ -1,0 +1,14 @@
+{
+  "lines": 63872,
+  "unique": 63872,
+  "issues": 63872,
+  "prs": 0,
+  "range": [
+    1,
+    162788
+  ],
+  "live_issue_count": 63864,
+  "coverage": 1.0001,
+  "c_bug_live": 21037,
+  "c_bug_local": 21039
+}

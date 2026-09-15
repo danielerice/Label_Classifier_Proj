@@ -1,0 +1,74 @@
+# Axis derivation config — rust-lang/rust
+#
+# Everything repo-specific lives here. prepare.py and evaluate.py read this and
+# contain no repo-specific logic, so porting to another taxonomy is a new config
+# file, not a rewrite.
+
+repo: rust-lang/rust
+
+# Each axis is a regex with a named 'value' group. Matched in declaration order;
+# first match wins. Labels matching no pattern are ignored entirely.
+axes:
+  category:
+    pattern: '^C-(?P<value>.+)$'
+    note: "C-bug, C-enhancement, C-tracking-issue. Issue type."
+  area:
+    pattern: '^A-(?P<value>.+)$'
+    note: "A-diagnostics, A-LLVM, A-trait-system. Subsystem."
+  team:
+    pattern: '^T-(?P<value>.+)$'
+    note: "T-compiler, T-libs-api, T-lang. Organizational ownership."
+  priority:
+    pattern: '^P-(?P<value>.+)$'
+    note: "P-critical/high/medium/low. Set by the prioritization WG in comments,
+           not issue bodies, so not reachable by the body-command leak."
+  impact:
+    pattern: '^I-(?P<value>.+)$'
+    note: >
+      I-ICE, I-unsound, I-slow. SUSPECT AXIS — some of these are applied by
+      triagebot autolabel rules keyed to which issue template was used, which is
+      leakage with no text to strip. Audit before trusting (DATA_NOTES step 1.5).
+
+# Support thresholds, applied after axis matching.
+min_label_support: 100    # drop labels rarer than this
+min_axis_support: 2000    # drop whole axes with fewer labeled issues than this
+
+# Individual labels dropped regardless of support, with the reason recorded.
+excluded_labels:
+  needs-triage: "Bot placeholder meaning 'not yet triaged'. Inverse of the target."
+  I-prioritize: "Process signal: someone requested prioritization. Not a property
+                 of the issue itself."
+  I-nominated: "Process: nominated for team discussion."
+  I-lang-nominated: "Process: nominated for lang team discussion."
+  I-types-nominated: "Process: nominated for types team discussion."
+  I-compiler-nominated: "Process: nominated for compiler team discussion."
+
+# Patterns dropped wholesale.
+excluded_patterns:
+  - pattern: '^S-'
+    reason: "Status labels (S-waiting-on-review, S-has-mcve). Workflow state at a
+             point in time, not a property of the issue content."
+  - pattern: '^regression-from-'
+    reason: "Derived from bisection tooling, not from the report text."
+  - pattern: '^WG-'
+    reason: "Working group assignment. Organizational, largely redundant with T-."
+  - pattern: '^E-'
+    reason: "E-easy, E-mentor. Describes fix effort, assigned after diagnosis."
+  - pattern: '^relnotes'
+    reason: "Release process bookkeeping."
+  - pattern: '^(beta|stable)-(nominated|accepted)$'
+    reason: "Backport process bookkeeping."
+
+# Text cleaning. Each switch is a decision that belongs in the write-up.
+text:
+  max_chars: 20000
+  strip_html_comments: true    # rust templates carry instructional comments
+  strip_bot_commands: true     # SEE DATA_NOTES — leave true
+  strip_form_headers: true     # '### Code', '### Meta' — constant across issues
+  code_fence_max_lines: 15     # keep the head of backtraces, drop the tail
+
+split:
+  train_frac: 0.80
+  val_frac: 0.10
+  test_frac: 0.10
+  exclude_created_after_days: 60   # newest issues may simply be untriaged yet

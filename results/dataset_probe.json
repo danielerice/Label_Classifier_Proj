@@ -1,0 +1,46 @@
+{
+  "rust C-bug + cmd in body": {
+    "query": "repo:rust-lang/rust is:issue label:C-bug \"@rustbot label\" in:body",
+    "count": 1681
+  },
+  "rust P-high": {
+    "query": "repo:rust-lang/rust is:issue label:P-high",
+    "count": 1478
+  },
+  "rust P-medium": {
+    "query": "repo:rust-lang/rust is:issue label:P-medium",
+    "count": 1784
+  },
+  "rust P-low": {
+    "query": "repo:rust-lang/rust is:issue label:P-low",
+    "count": 1031
+  },
+  "rust T-compiler": {
+    "query": "repo:rust-lang/rust is:issue label:T-compiler",
+    "count": 22949
+  },
+  "rust T-libs-api": {
+    "query": "repo:rust-lang/rust is:issue label:T-libs-api",
+    "count": 2684
+  },
+  "rust C-enhancement": {
+    "query": "repo:rust-lang/rust is:issue label:C-enhancement",
+    "count": 5062
+  },
+  "rust all issues": {
+    "query": "repo:rust-lang/rust is:issue",
+    "count": 63863
+  },
+  "k8s  priority/important-soon": {
+    "query": "repo:kubernetes/kubernetes is:issue label:\"priority/important-soon\"",
+    "count": 4926
+  },
+  "k8s  priority/backlog": {
+    "query": "repo:kubernetes/kubernetes is:issue label:\"priority/backlog\"",
+    "count": 4879
+  },
+  "k8s  all issues": {
+    "query": "repo:kubernetes/kubernetes is:issue",
+    "count": 49668
+  }
+}
