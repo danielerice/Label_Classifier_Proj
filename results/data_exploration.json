@@ -1,0 +1,76 @@
+{
+  "issues_per_year": {
+    "2010": 62,
+    "2011": 429,
+    "2012": 1650,
+    "2013": 1781,
+    "2014": 2084,
+    "2015": 2791,
+    "2016": 2244,
+    "2017": 3002,
+    "2018": 4005,
+    "2019": 3611,
+    "2020": 4436,
+    "2021": 4364,
+    "2022": 4361,
+    "2023": 4068,
+    "2024": 4797,
+    "2025": 4678,
+    "2026": 2182
+  },
+  "axis_table": [
+    {
+      "axis": "team",
+      "labels": 13,
+      "issues": 35866,
+      "coverage": 0.7095855178553764,
+      "largest": 22953,
+      "smallest": 140,
+      "imbalance": 163.95
+    },
+    {
+      "axis": "category",
+      "labels": 7,
+      "issues": 33034,
+      "coverage": 0.6535562370165199,
+      "largest": 21039,
+      "smallest": 633,
+      "imbalance": 33.23696682464455
+    },
+    {
+      "axis": "area",
+      "labels": 77,
+      "issues": 32309,
+      "coverage": 0.639212582846968,
+      "largest": 7298,
+      "smallest": 105,
+      "imbalance": 69.5047619047619
+    },
+    {
+      "axis": "impact",
+      "labels": 11,
+      "issues": 13724,
+      "coverage": 0.2715204273419725,
+      "largest": 9426,
+      "smallest": 107,
+      "imbalance": 88.09345794392523
+    },
+    {
+      "axis": "priority",
+      "labels": 4,
+      "issues": 4567,
+      "coverage": 0.09035512909288752,
+      "largest": 1785,
+      "smallest": 252,
+      "imbalance": 7.083333333333333
+    }
+  ],
+  "priority_comment_ratio": 1.99,
+  "priority_median_lift": 1.094,
+  "labels_per_issue_mean": 2.56,
+  "impact_audit": {
+    "C-bug": 0.0,
+    "I-ICE": 0.0,
+    "I-unsound": 580.5
+  }
+}
